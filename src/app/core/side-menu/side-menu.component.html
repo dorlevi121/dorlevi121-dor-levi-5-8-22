@@ -1,0 +1,19 @@
+<div class="side-menu-wrapper">
+
+    <div class="icon">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="menu-items">
+        <a *ngFor="let item of menuItems" [routerLink]="[item.path]" class="item" routerLinkActive="item-active">
+            {{item.title}}
+        </a>
+    </div>
+
+    <select class="currency" (change)="chnageCurrency($event)">
+        <option *ngFor="let currency of currencies" [value]="currency" [selected]="currency === currentCurrency">
+            {{currency}}</option>
+    </select>
+</div>

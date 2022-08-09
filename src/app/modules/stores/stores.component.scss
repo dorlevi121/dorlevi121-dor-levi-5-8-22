@@ -1,0 +1,11 @@
+@import '../../../assets/style/main.scss';
+
+.stores-wrapper {
+
+    & .title {
+        @include page-title;
+        margin-top: $margin-large;
+        margin-bottom: $margin-medium;
+
+    }
+}

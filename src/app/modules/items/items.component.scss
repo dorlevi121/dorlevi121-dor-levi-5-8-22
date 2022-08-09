@@ -1,0 +1,27 @@
+@import '../../../assets/style/main.scss';
+
+.items-wrapper {
+
+    & .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: $margin-large;
+
+        & .title {
+            @include page-title;
+        }
+
+        & .tabs-buttons {
+            margin-right: $margin-xl;
+
+            & a {
+                @include button;
+            }
+
+            & .button-active {
+                // background-color: #fbc912;
+            }
+        }
+    }
+}

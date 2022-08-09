@@ -1,0 +1,26 @@
+<div class="add-item-wrapper">
+    <form [formGroup]="form" (submit)="submit()">
+        <div (click)="closeModal.emit()" class="close">X</div>
+
+        <ng-autocomplete [data]="productsList" placeholder="Select Item" formControlName="name"
+            [searchKeyword]="'title'" [itemTemplate]="itemTemplate">
+        </ng-autocomplete>
+
+        <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.title"></a>
+        </ng-template>
+
+        <ng-autocomplete [data]="(stores | async).stores" placeholder="Select Store" formControlName="store" [searchKeyword]="'name'"
+            [itemTemplate]="storeTemplate">
+        </ng-autocomplete>
+
+        <ng-template #storeTemplate let-item>
+            <a [innerHTML]="item.name"></a>
+        </ng-template>
+
+        <ngx-datepicker formControlName="deliveryDate"></ngx-datepicker>
+        <input formControlName="price" type="number" placeholder="Price">
+
+        <button type="submit" [disabled]="!form.valid">Add</button>
+    </form>
+</div>

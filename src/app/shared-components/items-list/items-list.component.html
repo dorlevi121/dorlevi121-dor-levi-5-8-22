@@ -1,0 +1,24 @@
+<div class="items-list-wrapper">
+
+    <div class="titles">
+        <p class="title" *ngFor="let title of titles">{{title.title}}</p>
+    </div>
+    <div class="items">
+        <div *ngFor="let item of items" class="item">
+            <ng-container *ngFor="let title of titles">
+                <p *ngIf="title.type === 'text'">
+                    <ng-container *ngIf="title.key === 'deliveryDate'">
+                        {{ item[title.key] | date:'dd/mm/yyy'}}
+                    </ng-container>
+                    <ng-container>
+                        {{ title.key !== 'price' ? item[title.key] : item[title.key] | currency: currencyChanage:
+                        item[title.key]}}
+                    </ng-container>
+                </p>
+                <button *ngIf="title.type === 'btn'" (click)="changeStatus.emit(item)">
+                    To {{title.title}}
+                </button>
+            </ng-container>
+        </div>
+    </div>
+</div>
